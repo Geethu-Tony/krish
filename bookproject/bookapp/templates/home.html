@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% for i in book_list %}
+        <div class="col-md-4">
+           <div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <h3 class="card-title">{{i.title}}</h3>
+    <h5 class="card-text">{{i.author}}</h5>
+    <h5 class="card-text">{{i.genre}}</h5>
+    <!-- <p class="card-text"> {{i.publication_date}}</p>
+    <p class="card-text">{{i.avilability}}</p> -->
+    <br>
+
+    <a href="{% url 'bookapp:detail' i.id %}" class="btn btn-primary" width="200" height="100">Details</a>
+  </div>
+  
+</div>
+
+        </div>
+        {% endfor %}
+        <div class="text-left">
+                <a href="{% url 'bookapp:add_book' %}" class="btn btn-success">Add Books</a>
+    </div>
+{% endblock %}    
